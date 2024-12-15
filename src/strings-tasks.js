@@ -344,8 +344,13 @@ function countVowels(str) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  const regExp = /\W/g;
+  const strR = str.split('').reverse().join('');
+  return (
+    strR.replaceAll(regExp, '').toLowerCase() ===
+    str.replaceAll(regExp, '').toLowerCase()
+  );
 }
 
 /**
@@ -360,8 +365,13 @@ function isPalindrome(/* str */) {
  *   findLongestWord('A long and winding road') => 'winding'
  *   findLongestWord('No words here') => 'words'
  */
-function findLongestWord(/* sentence */) {
-  throw new Error('Not implemented');
+function findLongestWord(sentence) {
+  const strList = sentence.split(' ');
+  let k = '';
+  strList.forEach((entry) => {
+    if (entry.length > k.length) k = entry;
+  });
+  return k;
 }
 
 /**
